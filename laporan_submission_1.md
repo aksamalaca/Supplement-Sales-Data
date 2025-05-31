@@ -59,6 +59,11 @@ Dataset ini terdiri dari 4,384 entri dan 10 kolom, yang mencakup informasi tenta
 - **Location**: Lokasi geografis tempat penjualan dilakukan, yang dapat mempengaruhi preferensi dan pola pembelian pelanggan.
 - **Platform**: Platform penjualan, seperti Amazon, Walmart, atau iHerb, yang menunjukkan saluran distribusi produk.
 
+**Kondisi Data**
+- **Missing Values**: Tidak ditemukan missing values pada dataset awal. Setiap kolom memiliki 4.384 entri yang valid.
+- **Data Duplicates**: Tidak ada data duplikat yang terdeteksi dalam dataset.
+- **Outliers**: Analisis lebih lanjut diperlukan untuk mengidentifikasi outliers, terutama pada fitur numerik seperti Units Sold, Price, dan Revenue.
+
 **Exploratory Data Analysis (EDA)**
 Untuk memahami data lebih dalam, saya melakukan beberapa tahapan analisis eksplorasi data (EDA). Proyek ini memvisualisasikan distribusi fitur numerik menggunakan histogram dan kernel density estimation (KDE) untuk mengidentifikasi pola dan outlier. Selain itu, proyek ini juga menganalisis distribusi fitur kategorikal dengan menggunakan countplot untuk melihat frekuensi setiap kategori. Korelasi antar fitur numerik dianalisis menggunakan heatmap, yang membantu dalam memahami hubungan antara variabel. Dengan langkah-langkah ini, saya dapat memperoleh wawasan yang lebih baik tentang data dan mempersiapkan model machine learning yang lebih efektif.
 
@@ -105,13 +110,24 @@ K-Nearest Neighbors Regressor adalah algoritma yang menggunakan konsep k-nearest
 
 ## Evaluation
 Pada tahap evaluasi, proyek ini menggunakan beberapa metrik untuk menilai kinerja model regresi yang telah dibangun. Metrik yang digunakan adalah Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), dan R² Score. Metrik-metrik ini dipilih karena relevan dengan konteks data dan problem statement yang berfokus pada prediksi nilai kontinu, yaitu penjualan suplemen.    
-1.	Mean Absolute Error (MAE): MAE mengukur rata-rata kesalahan absolut antara nilai yang diprediksi dan nilai aktual. 
-2.	Mean Squared Error (MSE): MSE mengukur rata-rata kesalahan kuadrat antara nilai yang diprediksi dan nilai aktual.
-3.	Root Mean Squared Error (RMSE): RMSE adalah akar kuadrat dari MSE dan memberikan ukuran kesalahan dalam satuan yang sama dengan data. 
-4.	R² Score: R² Score, atau koefisien determinasi, mengukur proporsi varians dalam variabel dependen yang dapat dijelaskan oleh variabel independen dalam model.
+1.	**Mean Absolute Error (MAE)**: MAE mengukur rata-rata kesalahan absolut antara nilai yang diprediksi dan nilai aktual. 
+2.	**Mean Squared Error (MSE)**: MSE mengukur rata-rata kesalahan kuadrat antara nilai yang diprediksi dan nilai aktual.
+3.	**Root Mean Squared Error (RMSE)**: RMSE adalah akar kuadrat dari MSE dan memberikan ukuran kesalahan dalam satuan yang sama dengan data. 
+4.	**R² Score**: R² Score, atau koefisien determinasi, mengukur proporsi varians dalam variabel dependen yang dapat dijelaskan oleh variabel independen dalam model.
 
 **Hasil Proyek Berdasarkan Metrik Evaluasi**
 Berdasarkan hasil evaluasi model yang telah dilakukan, berikut adalah ringkasan metrik untuk setiap model regresi yang diuji:    
 ![Img_1](screenshot/gambar_1.png)
 
-Dari tabel di atas, dapat dilihat bahwa Random Forest Regressor memiliki nilai MAE, MSE, RMSE, dan R² Score yang paling baik dibandingkan dengan model lainnya. Dengan MAE sebesar 0.003257, model ini menunjukkan bahwa rata-rata kesalahan prediksi hanya sekitar 0.0033 unit, yang sangat kecil. Selain itu, R² Score sebesar 0.999269 menunjukkan bahwa model ini dapat menjelaskan sekitar 99.93% varians dalam data, yang menunjukkan kinerja yang sangat baik.    
+Dari tabel di atas, dapat dilihat bahwa Random Forest Regressor memiliki nilai MAE, MSE, RMSE, dan R² Score yang paling baik dibandingkan dengan model lainnya. Dengan MAE sebesar 0.003223, model ini menunjukkan bahwa rata-rata kesalahan prediksi hanya sekitar 0.0032 unit, yang sangat kecil. Selain itu, R² Score sebesar 0.999306 menunjukkan bahwa model ini dapat menjelaskan sekitar 99.93% varians dalam data, yang menunjukkan kinerja yang sangat baik.    
+
+**Kesimpulan**
+Hasil dari model Random Forest Regressor yang menunjukkan kinerja terbaik memberikan wawasan yang signifikan dalam konteks problem statement yang telah diuraikan sebelumnya. Dengan kemampuan model ini untuk memprediksi revenue penjualan suplemen dengan akurasi yang tinggi, perusahaan dapat mengambil keputusan yang lebih baik dalam strategi pemasaran, pengelolaan inventaris, dan perencanaan keuangan.
+
+Model ini dapat membantu perusahaan dalam:
+- **Mengoptimalkan Stok**: Dengan memprediksi revenue, perusahaan dapat lebih baik dalam mengelola stok produk, menghindari kelebihan atau kekurangan persediaan.
+- **Strategi Pemasaran**: Memahami produk mana yang memiliki potensi penjualan tertinggi dapat membantu dalam merancang kampanye pemasaran yang lebih efektif.
+- **Analisis Tren**: Dengan memanfaatkan model ini, perusahaan dapat menganalisis tren penjualan dari waktu ke waktu, yang dapat memberikan informasi berharga untuk perencanaan jangka panjang.
+- **Identifikasi Peluang dan Risiko**: Model ini juga dapat membantu dalam mengidentifikasi produk yang kurang diminati dan berisiko mengalami penurunan penjualan. Dengan informasi ini, perusahaan dapat mengambil langkah-langkah proaktif untuk meningkatkan penjualan produk tersebut, seperti melakukan perbaikan produk atau menyesuaikan strategi pemasaran.
+
+Dengan demikian, penerapan model ini tidak hanya memberikan manfaat jangka pendek dalam meningkatkan penjualan, tetapi juga mendukung pengambilan keputusan strategis yang lebih baik untuk pengembangan produk dan perbaikan strategi pemasaran di masa depan. Dengan informasi yang lebih akurat dan analisis yang mendalam, perusahaan dapat lebih siap untuk menghadapi tantangan di pasar dan memanfaatkan peluang yang ada.
